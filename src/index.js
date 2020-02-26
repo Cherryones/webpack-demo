@@ -8,6 +8,8 @@ new Header()
 new Sidebar()
 new Content()
 
+console.log(img)
+
 var pic = new Image()
 pic.src = './dist/' + img
 pic.classList.add('img-style')

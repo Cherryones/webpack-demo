@@ -1,12 +1,12 @@
 const path = require('path') // node核心模块
 
 module.exports = {
+    mode: 'development', // 默认是production
     entry: './src/index.js',
-    // output: {
-    //     filename: 'test.js',
-    //     path: path.resolve(__dirname, 'test')
-    // },
-    mode: 'development',
+    output: {
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'dist') // 绝对路径，默认文件夹dist
+    },
     module: {
         rules: [
             // {
@@ -14,7 +14,8 @@ module.exports = {
             //     use: {
             //         loader: 'file-loader',
             //         options: {
-            //             name: '[name]_[hash].[ext]' // [name]、[hash]、[ext]占位符（placeholder）
+            //             name: '[name]_[hash].[ext]', // [name]、[hash]、[ext]占位符（placeholder）
+            //             outputPath: 'images/' // 打包输出目录
             //         }
             //     }
             // },
@@ -23,8 +24,9 @@ module.exports = {
                 use: {
                     loader: 'url-loader',
                     options: {
-                        name: '[name].[ext]',
-                        limit: 2048 // 不设置limit，默认把文件以base64格式写入到js文件，若文件过大，则影响整个js加载速度
+                        name: '[name]_[hash].[ext]',
+                        outputPath: 'images/', 
+                        limit: 2048 // 大于2048kb的图片不打包到js文件中
                     }
                 }
             },
