@@ -43,6 +43,10 @@ module.exports = {
                 modules: true // 开启css模块化打包，减少css文件的耦合性
               }
             }, 'postcss-loader', 'sass-loader'] 
+          },
+          {
+            test: /\.(eot|svg|ttf|woff)/,
+            use: 'file-loader'
           }
         ]
     }
