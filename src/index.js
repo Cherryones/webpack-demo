@@ -14,7 +14,8 @@ new Sidebar()
 new Content()
 
 var pic = new Image()
-pic.src = './dist/' + img
+// pic.src = './dist/' + img
+pic.src = img
 // pic.classList.add('img-style')
 pic.classList.add(style['img-style'])
 var dom = document.getElementById('root')

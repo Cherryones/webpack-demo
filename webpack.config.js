@@ -1,4 +1,6 @@
 const path = require('path') // node核心模块
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development', // 默认是production
@@ -49,5 +51,11 @@ module.exports = {
             use: 'file-loader'
           }
         ]
-    }
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/template.html'
+      }), // 在打包结束后自动生成index.html，并把打包生成的js文件自动引入其中
+      new CleanWebpackPlugin()
+    ]
 }
