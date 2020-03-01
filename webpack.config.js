@@ -4,10 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development', // 默认是production
-    entry: './src/index.js',
+    entry: {
+      main: './src/index.js',
+      sub: './src/index.js'
+    },
     output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'dist') // 绝对路径，默认文件夹dist
+      // publicPath: 'http://cdn.com.cn', // 配置打包输出公共路径
+      filename: '[name].js',
+      path: path.resolve(__dirname, 'dist') // 绝对路径，默认文件夹dist
     },
     module: {
         rules: [
@@ -56,6 +60,6 @@ module.exports = {
       new HtmlWebpackPlugin({
         template: 'src/template.html'
       }), // 在打包结束后自动生成index.html，并把打包生成的js文件自动引入其中
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin() // 自动清空dist
     ]
 }
