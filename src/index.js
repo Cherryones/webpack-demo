@@ -2,7 +2,8 @@ import Header from './header'
 import Sidebar from './sidebar'
 import Content from './content'
 import img from './luffy02.jpg'
-import './index.css'
+// import './index.css'
+import './luffy.scss'
 
 new Header()
 new Sidebar()
