@@ -22,3 +22,6 @@ var dom = document.getElementById('root')
 dom.after(pic)
 
 dom.innerHTML = '<i class="iconfont icon-ceshi"></i>'
+
+// var a = 123; console.error(666)
+console.log(88888)

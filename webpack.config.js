@@ -4,9 +4,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development', // 默认是production
+    devtool: 'cheap-module-eval-source-map', // 设置了开发模式，会自动使用source-map模式
     entry: {
-      main: './src/index.js',
-      sub: './src/index.js'
+      index: './src/index.js',
+      // sub: './src/index.js'
     },
     output: {
       // publicPath: 'http://cdn.com.cn', // 配置打包输出公共路径
@@ -61,5 +62,13 @@ module.exports = {
         template: 'src/template.html'
       }), // 在打包结束后自动生成index.html，并把打包生成的js文件自动引入其中
       new CleanWebpackPlugin() // 自动清空dist
-    ]
+    ],
+    devServer: { // 开启服务
+      contentBase: './dist',
+      open: true, // 自动打开浏览器
+      port: 9090, // 设置服务端口
+      proxy: { // 设置代理，允许跨域
+        '/api': 'http://xxxx:3000'
+      }
+    }
 }
