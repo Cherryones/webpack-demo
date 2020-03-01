@@ -36,7 +36,13 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] 
+            use: ['style-loader', {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2, // 通过import引入的scss文件也要执行下面的两个loader
+                modules: true // 开启css模块化打包，减少css文件的耦合性
+              }
+            }, 'postcss-loader', 'sass-loader'] 
           }
         ]
     }
