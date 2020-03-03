@@ -1,6 +1,8 @@
+
 import Header from './header'
 import Sidebar from './sidebar'
 import Content from './content'
+import Es6 from './es6'
 import img from './luffy02.jpg'
 import './index.css'
 // import './luffy.scss'

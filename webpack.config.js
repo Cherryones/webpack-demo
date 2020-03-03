@@ -17,6 +17,11 @@ module.exports = {
   },
   module: {
       rules: [
+        { 
+          test: /\.js$/, 
+          exclude: /node_modules/,  
+          loader: "babel-loader", // es6与es5通信桥梁
+        }, 
         // {
         //   test: /\.jpg$/,
         //   use: {

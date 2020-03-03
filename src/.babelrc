@@ -1,0 +1,22 @@
+{
+  // "plugins": [ // 使用类库时的babel语法转换
+  //   [
+  //     "@babel/plugin-transform-runtime",
+  //     {
+  //       "absoluteRuntime": false,
+  //       "corejs": 2,
+  //       "helpers": true,
+  //       "regenerator": true,
+  //       "useESModules": false,
+  //       "version": "7.0.0-beta.0"
+  //     }
+  //   ]
+  // ]
+  "presets": [["@babel/preset-env", { // 语法转换(业务场景)
+    "targets": { // 针对做语法转换的浏览器，对于高版本浏览器就无需转换
+      "chrome": "80", 
+      // "ie": "11"
+    },
+    "useBuiltIns": "usage" // 按需补充es5缺少的语法，减小打包文件大小
+  }]] 
+}
