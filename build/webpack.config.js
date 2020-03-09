@@ -9,7 +9,7 @@ const devConfig = {
   output: {
     // publicPath: 'http://cdn.com.cn', // 配置打包输出公共路径
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist') // 绝对路径，默认文件夹dist
+    path: path.resolve(__dirname, '../dist/dev') // 绝对路径，默认文件夹dist
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin() // 引用webpack自带的模块热更新插件

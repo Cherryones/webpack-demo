@@ -1,4 +1,3 @@
-
 import Header from './header'
 import Sidebar from './sidebar'
 import Content from './content'
@@ -6,7 +5,7 @@ import Es6 from './es6'
 import img from './luffy02.jpg'
 import './index.css'
 // import './luffy.scss'
-import style from './luffy.scss'  // 开启css文件模块化打包
+import style from './luffy.scss' // 开启css文件模块化打包
 import './font/iconfont.css'
 console.log(img)
 console.log(style)
@@ -34,14 +33,33 @@ html.innerHTML = '<button id="btn">点我</button>'
 dom.after(html)
 
 var btn = document.getElementById('btn')
-btn.onclick = function() {
-  var text = document.createElement('p')
-  text.innerHTML = '<p class="title">点我啦</p'
-  btn.after(text)
+btn.onclick = function () {
+    var text = document.createElement('p')
+    text.innerHTML = '<p class="title">点我啦</p'
+    btn.after(text)
 }
 
 if (module.hot) { // 一般loader内会内置这种功能
-  module.hot.accept('./header', ()=>{
+    module.hot.accept('./header', () => {
 
-  })
+    })
 }
+
+// Code Splitting
+import _ from 'lodash' // 同步加载
+
+console.log(_.join([1, 2, 3], '*'))
+
+// function getComponent() {
+//     return import( /* webpackChunkName:"lodash"*/ 'lodash').then(({ // 异步加载
+//         default: _
+//     }) => {
+//         var element = document.createElement('div')
+//         element.innerHTML = _.join(['xy', 'cc'], '&')
+//         return element
+//     })
+// }
+
+// getComponent().then(element => {
+//     document.body.appendChild(element)
+// })

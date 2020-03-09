@@ -17,6 +17,7 @@
       "chrome": "80", 
       // "ie": "11"
     },
-    "useBuiltIns": "usage" // 按需补充es5缺少的语法，减小打包文件大小
+    "useBuiltIns": "usage", // 按需补充es5缺少的语法，减小打包文件大小
+    "corejs": "3"
   }]] 
 }
